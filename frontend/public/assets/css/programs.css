@@ -1,0 +1,711 @@
+/* =========================================================
+   PROGRAMS PAGE
+========================================================= */
+
+
+/* =========================================================
+   PROGRAMS HERO
+========================================================= */
+
+.programs-hero {
+    position: relative;
+
+    min-height: 680px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.82),
+            rgba(0, 0, 0, 0.38)
+        ),
+        url("/assets/images/programs-hero.jpg")
+        center / cover no-repeat;
+
+    color: #ffffff;
+}
+
+.programs-hero__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            transparent 50%
+        );
+}
+
+.programs-hero__container {
+    position: relative;
+    z-index: 1;
+
+    width: min(1200px, 90%);
+    margin: 0 auto;
+
+    padding-top: 90px;
+}
+
+.programs-hero__eyebrow {
+    margin: 0 0 20px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+.programs-hero__title {
+    max-width: 900px;
+
+    margin: 0;
+
+    font-size: clamp(60px, 9vw, 125px);
+    font-weight: 900;
+
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+
+    text-transform: uppercase;
+}
+
+.programs-hero__title span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1.5px #ffffff;
+}
+
+.programs-hero__description {
+    max-width: 500px;
+
+    margin: 35px 0 0;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.programs-hero__scroll {
+    position: absolute;
+
+    right: 5%;
+    bottom: 35px;
+
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+.programs-hero__scroll span:last-child {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   STRENGTH
+========================================================= */
+
+.program-strength {
+    padding: 120px 0;
+
+    background: #f4f4f2;
+    color: #111111;
+}
+
+.program-strength__container {
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 90px;
+}
+
+.program-strength__image {
+    position: relative;
+
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.45),
+            transparent 50%
+        ),
+        url("/assets/images/program-strength.jpg")
+        center / cover no-repeat;
+}
+
+.program-strength__number {
+    position: absolute;
+
+    left: 25px;
+    bottom: 20px;
+
+    color: #ffffff;
+
+    font-size: 90px;
+    font-weight: 900;
+
+    line-height: 1;
+
+    opacity: 0.75;
+}
+
+.program-strength__content {
+    max-width: 520px;
+}
+
+.program-strength__eyebrow,
+.program-fatloss__eyebrow,
+.program-personal__eyebrow {
+    margin: 0 0 18px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+}
+
+.program-strength__title,
+.program-fatloss__title,
+.program-personal__title {
+    margin: 0;
+
+    font-size: clamp(50px, 6vw, 82px);
+    font-weight: 900;
+
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+
+    text-transform: uppercase;
+}
+
+.program-strength__title span,
+.program-fatloss__title span,
+.program-personal__title span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1.5px currentColor;
+}
+
+.program-strength__text,
+.program-fatloss__text,
+.program-personal__text {
+    margin: 30px 0 0;
+
+    color: #555555;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.program-strength__details,
+.program-fatloss__details,
+.program-personal__details {
+    margin-top: 35px;
+
+    display: grid;
+    gap: 18px;
+}
+
+.program-strength__details div,
+.program-fatloss__details div,
+.program-personal__details div {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.program-strength__details span,
+.program-fatloss__details span,
+.program-personal__details span {
+    color: #777777;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+.program-strength__details strong,
+.program-fatloss__details strong,
+.program-personal__details strong {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.program-strength__button,
+.program-fatloss__button,
+.program-personal__button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 38px;
+
+    padding: 15px 20px;
+
+    background: #111111;
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.program-strength__button span,
+.program-fatloss__button span,
+.program-personal__button span {
+    font-size: 17px;
+}
+
+.program-strength__button:hover,
+.program-fatloss__button:hover,
+.program-personal__button:hover {
+    background: #333333;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   FAT LOSS
+========================================================= */
+
+.program-fatloss {
+    padding: 120px 0;
+
+    background: #111111;
+    color: #ffffff;
+}
+
+.program-fatloss__container {
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 90px;
+}
+
+.program-fatloss__content {
+    max-width: 520px;
+}
+
+.program-fatloss__eyebrow {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.program-fatloss__text {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.program-fatloss__details div {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.program-fatloss__details span {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.program-fatloss__button {
+    background: #ffffff;
+    color: #111111;
+}
+
+.program-fatloss__button:hover {
+    background: #dddddd;
+}
+
+.program-fatloss__image {
+    position: relative;
+
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.55),
+            transparent 50%
+        ),
+        url("/assets/images/program-fatloss.jpg")
+        center / cover no-repeat;
+}
+
+.program-fatloss__number {
+    position: absolute;
+
+    right: 25px;
+    bottom: 20px;
+
+    color: #ffffff;
+
+    font-size: 90px;
+    font-weight: 900;
+
+    line-height: 1;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   PERSONAL TRAINING
+========================================================= */
+
+.program-personal {
+    padding: 120px 0;
+
+    background: #f4f4f2;
+    color: #111111;
+}
+
+.program-personal__container {
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 90px;
+}
+
+.program-personal__image {
+    position: relative;
+
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.5),
+            transparent 50%
+        ),
+        url("/assets/images/program-personal.jpg")
+        center / cover no-repeat;
+}
+
+.program-personal__number {
+    position: absolute;
+
+    left: 25px;
+    bottom: 20px;
+
+    color: #ffffff;
+
+    font-size: 90px;
+    font-weight: 900;
+
+    line-height: 1;
+
+    opacity: 0.75;
+}
+
+.program-personal__content {
+    max-width: 520px;
+}
+
+
+/* =========================================================
+   PROGRAMS CTA
+========================================================= */
+
+.programs-cta {
+    position: relative;
+
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        url("/assets/images/programs-cta.jpg")
+        center / cover no-repeat;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.programs-cta__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.82)
+        );
+}
+
+.programs-cta__container {
+    position: relative;
+    z-index: 1;
+
+    width: min(850px, 90%);
+}
+
+.programs-cta__eyebrow {
+    margin: 0 0 20px;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.2em;
+}
+
+.programs-cta__title {
+    margin: 0;
+
+    font-size: clamp(55px, 8vw, 100px);
+    font-weight: 900;
+
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+
+    text-transform: uppercase;
+}
+
+.programs-cta__title span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1.5px #ffffff;
+}
+
+.programs-cta__description {
+    max-width: 520px;
+
+    margin: 30px auto 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.programs-cta__button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    padding: 16px 22px;
+
+    background: #ffffff;
+    color: #111111;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.programs-cta__button span {
+    font-size: 18px;
+}
+
+.programs-cta__button:hover {
+    background: #dddddd;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .programs-hero {
+        min-height: 620px;
+    }
+
+    .program-strength__container,
+    .program-fatloss__container,
+    .program-personal__container {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .program-strength__image,
+    .program-fatloss__image,
+    .program-personal__image {
+        min-height: 480px;
+    }
+
+    .program-fatloss__container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .program-strength__content,
+    .program-fatloss__content,
+    .program-personal__content {
+        max-width: 650px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .programs-hero {
+        min-height: 580px;
+    }
+
+    .programs-hero__container {
+        padding-top: 75px;
+    }
+
+    .programs-hero__title {
+        font-size: clamp(52px, 16vw, 80px);
+    }
+
+    .programs-hero__description {
+        margin-top: 25px;
+
+        font-size: 14px;
+    }
+
+    .programs-hero__scroll {
+        right: 5%;
+        bottom: 25px;
+    }
+
+    .program-strength,
+    .program-fatloss,
+    .program-personal {
+        padding: 80px 0;
+    }
+
+    .program-strength__container,
+    .program-fatloss__container,
+    .program-personal__container {
+        width: 90%;
+
+        gap: 40px;
+    }
+
+    .program-strength__image,
+    .program-fatloss__image,
+    .program-personal__image {
+        min-height: 380px;
+    }
+
+    .program-strength__number,
+    .program-fatloss__number,
+    .program-personal__number {
+        font-size: 65px;
+    }
+
+    .program-strength__title,
+    .program-fatloss__title,
+    .program-personal__title {
+        font-size: 55px;
+    }
+
+    .program-strength__text,
+    .program-fatloss__text,
+    .program-personal__text {
+        margin-top: 25px;
+
+        font-size: 14px;
+    }
+
+    .program-strength__details,
+    .program-fatloss__details,
+    .program-personal__details {
+        margin-top: 28px;
+    }
+
+    .program-strength__details div,
+    .program-fatloss__details div,
+    .program-personal__details div {
+        gap: 15px;
+    }
+
+    .program-strength__details strong,
+    .program-fatloss__details strong,
+    .program-personal__details strong {
+        text-align: right;
+    }
+
+    .programs-cta {
+        min-height: 500px;
+    }
+
+    .programs-cta__title {
+        font-size: clamp(48px, 14vw, 72px);
+    }
+
+    .programs-cta__description {
+        font-size: 14px;
+    }
+}
