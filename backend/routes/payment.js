@@ -1,6 +1,7 @@
 const express = require("express");
 const crypto = require("crypto");
 const Razorpay = require("razorpay");
+const MyModel = require("../models/users");
 
 const router = express.Router();
 
@@ -82,20 +83,23 @@ router.post("/payment/create-order", async (req, res) => {
   }
 });
 
-
-// ========================================
-// VERIFY PAYMENT
-// ========================================
-
 router.post("/payment/verify", async (req, res) => {
   try {
     const {
+      userId,
+      plan,
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
     } = req.body;
 
+    // ========================================
+    // CHECK REQUIRED DATA
+    // ========================================
+
     if (
+      !userId ||
+      !plan ||
       !razorpay_order_id ||
       !razorpay_payment_id ||
       !razorpay_signature
@@ -105,6 +109,10 @@ router.post("/payment/verify", async (req, res) => {
         message: "Payment verification details are required",
       });
     }
+
+    // ========================================
+    // VERIFY RAZORPAY SIGNATURE
+    // ========================================
 
     const generatedSignature = crypto
       .createHmac(
@@ -116,29 +124,106 @@ router.post("/payment/verify", async (req, res) => {
       )
       .digest("hex");
 
-    if (
-      generatedSignature !== razorpay_signature
-    ) {
+    if (generatedSignature !== razorpay_signature) {
       return res.status(400).json({
         status: false,
         message: "Payment verification failed",
       });
     }
 
+    // ========================================
+    // OFFICIAL MEMBERSHIP PLANS
+    // ========================================
+
+    const plans = {
+      Basic: 999,
+      Pro: 1499,
+      Elite: 2499,
+    };
+
+    if (!plans[plan]) {
+      return res.status(400).json({
+        status: false,
+        message: "Invalid membership plan",
+      });
+    }
+
+    // ========================================
+    // FIND USER
+    // ========================================
+
+    const user = await MyModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        status: false,
+        message: "User not found",
+      });
+    }
+
+    // ========================================
+    // MEMBERSHIP DATES
+    // ========================================
+
+    const startDate = new Date();
+
+    const expiryDate = new Date(startDate);
+
+    expiryDate.setMonth(
+      expiryDate.getMonth() + 1
+    );
+
+    // ========================================
+    // ACTIVATE MEMBERSHIP
+    // ========================================
+
+    user.membership = {
+      plan: plan,
+      price: plans[plan],
+      startDate: startDate,
+      expiryDate: expiryDate,
+      status: "Active",
+    };
+
+    await user.save();
+
+    console.log(
+      "MEMBERSHIP ACTIVATED:",
+      user.email,
+      plan
+    );
+
+    // ========================================
+    // SUCCESS RESPONSE
+    // ========================================
+
     return res.status(200).json({
       status: true,
-      message: "Payment verified successfully",
+      message: "Payment verified and membership activated successfully",
+
+      data: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        membership: user.membership,
+      },
     });
 
   } catch (err) {
-    console.log("VERIFY PAYMENT ERROR:", err);
+
+    console.log(
+      "VERIFY PAYMENT ERROR:",
+      err
+    );
 
     return res.status(500).json({
       status: false,
-      message: "Unable to verify payment",
+      message:
+        err?.message ||
+        "Unable to verify payment",
     });
   }
 });
-
 
 module.exports = router;

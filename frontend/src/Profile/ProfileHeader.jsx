@@ -14,7 +14,7 @@ const ProfileHeader = ({
       return imagePath;
     }
 
-    return `http://localhost:3040${imagePath}`;
+    return `https://ironfit-gym-website.onrender.com${imagePath}`;
   };
 
   const profileImage =

@@ -32,7 +32,7 @@ const ForgotPassword = () => {
 
 
       const response = await fetch(
-        "http://localhost:3040/forgot-password",
+        "https://ironfit-gym-website.onrender.com/forgot-password",
         {
           method: "POST",
 

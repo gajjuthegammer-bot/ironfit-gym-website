@@ -70,7 +70,7 @@ const Payment = () => {
       ======================================== */
 
       const orderResponse = await fetch(
-        "http://localhost:3040/payment/create-order",
+        "https://ironfit-gym-website.onrender.com/payment/create-order",
         {
           method: "POST",
 
@@ -156,7 +156,7 @@ const Payment = () => {
 
             const verifyResponse =
               await fetch(
-                "http://localhost:3040/payment/verify",
+                "https://ironfit-gym-website.onrender.com/payment/verify",
                 {
                   method: "POST",
 

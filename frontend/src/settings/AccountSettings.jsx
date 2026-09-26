@@ -126,7 +126,7 @@ const AccountSettings = ({ user }) => {
 
 
       const response = await fetch(
-        "http://localhost:3040/change-password",
+        "https://ironfit-gym-website.onrender.com/change-password",
         {
           method: "PATCH",
 

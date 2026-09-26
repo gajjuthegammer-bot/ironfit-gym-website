@@ -47,7 +47,7 @@ const ResetPassword = () => {
 
 
       const response = await fetch(
-        `http://localhost:3040/reset-password/${token}`,
+        `https://ironfit-gym-website.onrender.com/reset-password/${token}`,
         {
           method: "POST",
 

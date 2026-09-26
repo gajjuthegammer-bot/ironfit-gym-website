@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const dns = require("dns");
 
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
-async function dbconnect(){
-    return mongoose.connect('mongodb://127.0.0.1:27017/GYM')
+const dbconnect = async () => {
+  return mongoose.connect(process.env.MONGODB_URL);
+};
 
-}
-module.exports = dbconnect; 
+module.exports = dbconnect;

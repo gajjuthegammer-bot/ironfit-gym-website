@@ -56,6 +56,8 @@ app.use(
 );
 
 
-app.listen(3040, () => {
-  console.log("Server is running on port 3040");
+const PORT = process.env.PORT || 3040;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 });

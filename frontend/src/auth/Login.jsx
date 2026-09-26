@@ -35,110 +35,67 @@ const Login = () => {
   // =========================================================
 
   const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // STOP DEFAULT FORM RELOAD
+  setMessage("");
 
-    e.preventDefault();
+  try {
+    setLoading(true);
 
-    setMessage("");
-
-
-    try {
-
-      setLoading(true);
-
-
-      // =====================================================
-      // LOGIN API
-      // =====================================================
-
-      const response = await fetch(
-        "http://localhost:3040/login",
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify(formData),
-        }
-      );
-
-
-      const data = await response.json();
-
-
-      // =====================================================
-      // LOGIN SUCCESS
-      // =====================================================
-
-      if (data.status) {
-
-        setMessage("Login successful!");
-
-        console.log(
-          "Login successful:",
-          data
-        );
-
-
-        // ===================================================
-        // SAVE USER
-        // ===================================================
-
-        localStorage.setItem(
-          "ironfitUser",
-          JSON.stringify(data.data)
-        );
-
-
-        // ===================================================
-        // UPDATE HEADER
-        // ===================================================
-
-        window.dispatchEvent(
-          new Event("ironfitUserChanged")
-        );
-
-
-        // ===================================================
-        // GO TO HOME
-        // ===================================================
-
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
-
-      } else {
-
-        setMessage(
-          data.message ||
-          "Invalid Email or Password"
-        );
-
+    const response = await fetch(
+      "https://ironfit-gym-website.onrender.com/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       }
+    );
 
+    console.log("Response status:", response.status);
+    console.log("Response OK:", response.ok);
 
-    } catch (error) {
+    const text = await response.text();
 
-      console.log(
-        "LOGIN ERROR:",
-        error
+    console.log("Server response:", text);
+
+    const data = JSON.parse(text);
+
+    if (data.status) {
+      setMessage("Login successful!");
+
+      console.log("Login successful:", data);
+
+      localStorage.setItem(
+        "ironfitUser",
+        JSON.stringify(data.data)
       );
 
+      window.dispatchEvent(
+        new Event("ironfitUserChanged")
+      );
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } else {
       setMessage(
-        "Unable to connect to server. Please try again."
+        data.message || "Invalid Email or Password"
       );
-
-
-    } finally {
-
-      setLoading(false);
-
     }
-  };
 
+  } catch (error) {
+    console.error("LOGIN ERROR:", error);
+
+    setMessage(
+      `Error: ${error.message}`
+    );
+
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <main className="auth-login">

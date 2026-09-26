@@ -150,14 +150,14 @@ const Header = () => {
 
   };
   const getProfileImageUrl = (imagePath) => {
-  if (!imagePath) return null;
+    if (!imagePath) return null;
 
-  if (imagePath.startsWith("http")) {
-    return imagePath;
-  }
+    if (imagePath.startsWith("http")) {
+      return imagePath;
+    }
 
-  return `http://localhost:3040${imagePath}`;
-};
+    return `https://ironfit-gym-website.onrender.com${imagePath}`;
+  };
 
 
 
@@ -199,10 +199,9 @@ const Header = () => {
             to="/"
             end
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -216,10 +215,9 @@ const Header = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -233,10 +231,9 @@ const Header = () => {
           <NavLink
             to="/programs"
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -250,10 +247,9 @@ const Header = () => {
           <NavLink
             to="/trainers"
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -267,10 +263,9 @@ const Header = () => {
           <NavLink
             to="/membership"
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -284,10 +279,9 @@ const Header = () => {
           <NavLink
             to="/gallery"
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -301,10 +295,9 @@ const Header = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `site-header__link ${
-                isActive
-                  ? "site-header__link--active"
-                  : ""
+              `site-header__link ${isActive
+                ? "site-header__link--active"
+                : ""
               }`
             }
             onClick={handleClick}
@@ -334,17 +327,17 @@ const Header = () => {
                 }
               >
 
-               <span className="site-header__profile-image">
-  {user?.profileImage ? (
-    <img
-      src={getProfileImageUrl(user.profileImage)}
-      alt={user.name}
-      className="site-header__profile-image-img"
-    />
-  ) : (
-    getInitials()
-  )}
-</span>
+                <span className="site-header__profile-image">
+                  {user?.profileImage ? (
+                    <img
+                      src={getProfileImageUrl(user.profileImage)}
+                      alt={user.name}
+                      className="site-header__profile-image-img"
+                    />
+                  ) : (
+                    getInitials()
+                  )}
+                </span>
 
                 <span className="site-header__profile-name">
 
@@ -354,11 +347,10 @@ const Header = () => {
 
 
                 <span
-                  className={`site-header__profile-arrow ${
-                    profileOpen
+                  className={`site-header__profile-arrow ${profileOpen
                       ? "site-header__profile-arrow--open"
                       : ""
-                  }`}
+                    }`}
                 >
 
                   ↓
@@ -382,17 +374,17 @@ const Header = () => {
                     <span className="site-header__profile-image site-header__profile-image--large">
 
                       {user?.profileImage ? (
-    <img
-      src={getProfileImageUrl(user.profileImage)}
-      alt={user.name}
-      className="site-header__profile-image-img"
-    />
-  ) : (
-    getInitials()
-  )}
+                        <img
+                          src={getProfileImageUrl(user.profileImage)}
+                          alt={user.name}
+                          className="site-header__profile-image-img"
+                        />
+                      ) : (
+                        getInitials()
+                      )}
 
                     </span>
-                    
+
 
 
                     <div>
@@ -517,11 +509,10 @@ const Header = () => {
 
         <button
           type="button"
-          className={`site-header__menu ${
-            menuOpen
+          className={`site-header__menu ${menuOpen
               ? "site-header__menu--open"
               : ""
-          }`}
+            }`}
           aria-label={
             menuOpen
               ? "Close menu"
@@ -547,11 +538,10 @@ const Header = () => {
       ===================================================== */}
 
       <nav
-        className={`site-header__mobile-nav ${
-          menuOpen
+        className={`site-header__mobile-nav ${menuOpen
             ? "site-header__mobile-nav--open"
             : ""
-        }`}
+          }`}
       >
 
 
@@ -576,12 +566,17 @@ const Header = () => {
               }
             >
 
-              <span className="site-header__profile-image">
-
-                {getInitials()}
-                
-
-              </span>
+             <span className="site-header__profile-image">
+  {user?.profileImage ? (
+    <img
+      src={getProfileImageUrl(user.profileImage)}
+      alt={user.name}
+      className="site-header__profile-image-img"
+    />
+  ) : (
+    getInitials()
+  )}
+</span>
 
 
               <span className="site-header__mobile-profile-details">
@@ -598,11 +593,10 @@ const Header = () => {
 
 
               <span
-                className={`site-header__mobile-profile-arrow ${
-                  profileOpen
+                className={`site-header__mobile-profile-arrow ${profileOpen
                     ? "site-header__mobile-profile-arrow--open"
                     : ""
-                }`}
+                  }`}
               >
 
                 ↓
@@ -727,10 +721,9 @@ const Header = () => {
           to="/"
           end
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}
@@ -752,10 +745,9 @@ const Header = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}
@@ -777,10 +769,9 @@ const Header = () => {
         <NavLink
           to="/programs"
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}
@@ -802,10 +793,9 @@ const Header = () => {
         <NavLink
           to="/trainers"
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}
@@ -827,10 +817,9 @@ const Header = () => {
         <NavLink
           to="/membership"
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}
@@ -852,10 +841,9 @@ const Header = () => {
         <NavLink
           to="/gallery"
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}
@@ -877,10 +865,9 @@ const Header = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `site-header__mobile-link ${
-              isActive
-                ? "site-header__mobile-link--active"
-                : ""
+            `site-header__mobile-link ${isActive
+              ? "site-header__mobile-link--active"
+              : ""
             }`
           }
           onClick={handleClick}

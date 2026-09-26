@@ -39,7 +39,7 @@ const Register = () => {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:3040/registration",
+        "https://ironfit-gym-website.onrender.com/registration",
         {
           method: "POST",
           headers: {

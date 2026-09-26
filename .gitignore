@@ -73,3 +73,5 @@ Thumbs.db
 
 backend/.env
 frontend/.env
+
+backend/uploads/

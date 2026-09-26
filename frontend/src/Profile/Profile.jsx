@@ -144,7 +144,7 @@ const Profile = () => {
       setLoading(true);
 
       const response = await fetch(
-        `http://localhost:3040/user/${user._id}`,
+        `https://ironfit-gym-website.onrender.com/user/${user._id}`,
         {
           method: "PATCH",
           headers: {
@@ -245,7 +245,7 @@ const Profile = () => {
       );
 
       const response = await fetch(
-        `http://localhost:3040/user/profile-image/${user._id}`,
+        `https://ironfit-gym-website.onrender.com/user/profile-image/${user._id}`,
         {
           method: "PATCH",
           body: formData,
